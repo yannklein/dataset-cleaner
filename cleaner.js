@@ -1,8 +1,8 @@
 const input = document.querySelector("#csvFile");
 const comparisonArea = document.querySelector(".data-comparison");
 const saveArea = document.querySelector(".data-save");
-const imgClean = document.querySelector(".data-images-clean img");
-const imgCheck = document.querySelector(".data-images-check img");
+const imgClean = document.querySelector(".data-images-clean");
+const imgCheck = document.querySelector(".data-images-check");
 const dataClassName = document.querySelector(".data-classname");
 
 let currentLine = 0;
@@ -51,14 +51,27 @@ const errorHandler = (evt)  => {
 };
 
 const initalizeComparison = () => {
-  imgClean.src = originalDataArray[0];
+  imgClean.innerHTML =
+  `
+    <img src="${originalDataArray[0]}" alt="image to be checked">
+    <p>Clean image</p>
+  `;
   comparisonArea.style.display = "block";
   saveArea.style.display = "block";
 };
 
 const showANewImage = () => {
+  if (currentLine >= originalDataArray.length) {
+    imgCheck.innerHTML = `<p>Great, no more images!</p>`
+    return;
+  }
+
   currentLine += 1;
-  imgCheck.src = originalDataArray[currentLine];
+  imgCheck.innerHTML =
+  `
+    <img src="${originalDataArray[currentLine]}" alt="image to be checked">
+    <p>Image to check</p>
+  `;
 };
 
 const likeDislike = (event) => {
