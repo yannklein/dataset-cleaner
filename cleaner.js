@@ -65,7 +65,7 @@ const initalizeComparison = () => {
 const showANewImage = () => {
   currentLine += 1;
 
-  if (currentLine >= originalDataArray.length) {
+  if (originalDataArray[currentLine]) {
     imgCheck.innerHTML = `<p>Great, no more images!</p>`
     return;
   }
