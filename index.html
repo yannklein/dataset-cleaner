@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Image Dataset cleaner</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Dataset Cleaner</h1>
-  <p>Simple Tinder style dataset cleaner.</p>
-  <div class="data-input">
-    <h2>1. Upload a CSV file with one image link per line. (the first image should be a clean one)</h2>
-    <input type="file" id="csvFileInput">
-  </div>
-
-  <div class="data-comparison">
-    <h2>
-      2. If you believe the image is a <span class="data-classname"></span>
-    </h2>
-    <div class="data-images">
-      <div class="data-images-clean">
-        <img src="#" alt="#">
-        <p>Clean image</p>
-      </div>
-      <div class="data-images-check">
-        <img src="#" alt="#">
-        <p>Image to check</p>
+  <div class="container">
+    <div class="title">
+      <h1>Dataset Cleaner</h1>
+      <p>Simple Tinder style dataset cleaner.</p>
+    </div>
+    <div class="data-input">
+      <h2>1. Upload a CSV file with one image link per line.
+      </h2>
+      <p>Note: the first image should be a clean one.</p>
+      <div class="custom-file w-25">
+        <input type="file" class="custom-file-input" id="csvFile">
+        <label class="custom-file-label" for="csvFile"> Choose a CSV file</label>
       </div>
     </div>
+
+    <div class="data-comparison">
+      <h2>
+        2. If you believe the image is a <span class="data-classname"></span> press <strong>P</strong>, unless press <strong>Q</strong>.
+      </h2>
+      <div class="data-images">
+        <div class="data-images-clean">
+          <img src="#" alt="#">
+          <p>Clean image</p>
+        </div>
+        <div class="data-images-check">
+          <img src="#" alt="#">
+          <p>Image to check</p>
+        </div>
+      </div>
+    </div>
+
   </div>
   <script src="./cleaner.js"></script>
 </body>
