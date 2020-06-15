@@ -4,6 +4,7 @@ const saveArea = document.querySelector(".data-save");
 const imgClean = document.querySelector(".data-images-clean");
 const imgCheck = document.querySelector(".data-images-check");
 const dataClassName = document.querySelector(".data-classname");
+const save = document.querySelector("#saveCSV");
 
 let currentLine = 0;
 let originalDataArray = [];
@@ -39,6 +40,7 @@ const loadHandler = (event) => {
 
 const processData = (csv) => {
   originalDataArray =  csv.split(/\r\n|\n/);
+  resultDataArray.push(originalDataArray[0])
   // console.log(originalDataArray);
   initalizeComparison();
   showANewImage();
@@ -61,12 +63,13 @@ const initalizeComparison = () => {
 };
 
 const showANewImage = () => {
+  currentLine += 1;
+
   if (currentLine >= originalDataArray.length) {
     imgCheck.innerHTML = `<p>Great, no more images!</p>`
     return;
   }
 
-  currentLine += 1;
   imgCheck.innerHTML =
   `
     <img src="${originalDataArray[currentLine]}" alt="image to be checked">
@@ -77,7 +80,7 @@ const showANewImage = () => {
 const likeDislike = (event) => {
   if (event.key === "p")  {
     // If the image to be checked is cleaned, we keep it
-    resultDataArray.push(originalDataArray[currentLine]);
+    if (originalDataArray[currentLine]) resultDataArray.push(originalDataArray[currentLine]);
     showANewImage();
   }
   if (event.key === "q")  {
@@ -85,8 +88,22 @@ const likeDislike = (event) => {
     showANewImage();
   }
 
-  console.log(resultDataArray);
+  // console.log(resultDataArray);
+}
+
+const saveCSV = () => {
+  const str = encodeURI(resultDataArray.join('\n'));
+  const uri = 'data:text/csv;charset=utf-8,' + str;
+
+  const downloadLink = document.createElement("a");
+  downloadLink.href = uri;
+  downloadLink.download = dataClassName.innerText;
+
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
 }
 
 input.addEventListener("change", processCSV);
 document.addEventListener("keyup", likeDislike);
+save.addEventListener("click", saveCSV)
