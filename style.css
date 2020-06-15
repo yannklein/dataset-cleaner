@@ -12,6 +12,26 @@ h2 {
   font-size: 24px;
 }
 
+.data-input {
+  margin: 24px 0;
+}
+
 .data-comparison {
   display: none;
+}
+
+.data-images {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  text-align: center;
+  margin: 24px 0;
+}
+
+.text-red {
+  color: red;
+}
+
+.text-green {
+  color: green;
 }
