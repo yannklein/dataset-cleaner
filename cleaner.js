@@ -87,8 +87,18 @@ const likeDislike = (event) => {
     // If not is cleaned, we don't
     showANewImage();
   }
+  if (event.key === "c")  {
+    // If not is cleaned, we don't
+    cancelLike();
+  }
 
-  // console.log(resultDataArray);
+  console.log(resultDataArray);
+}
+
+const cancelLike = () => {
+  resultDataArray.pop();
+  currentLine -= 2;
+  showANewImage();
 }
 
 const saveCSV = () => {
