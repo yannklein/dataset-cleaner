@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Dataset cleaner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Dataset Cleaner</h1>
+  <p>Simple Tinder style dataset cleaner.</p>
+  <div class="data-input">
+    <h2>1. Upload a CSV file with one image link per line. (the first image should be a clean one)</h2>
+    <input type="file" id="csvFileInput">
+  </div>
+
+  <div class="data-comparison">
+    <h2>
+      2. If you believe the image is a <span class="data-classname"></span>
+    </h2>
+    <div class="data-images">
+      <div class="data-images-clean">
+        <img src="#" alt="#">
+        <p>Clean image</p>
+      </div>
+      <div class="data-images-check">
+        <img src="#" alt="#">
+        <p>Image to check</p>
+      </div>
+    </div>
+  </div>
+  <script src="./cleaner.js"></script>
+</body>
+</html>
