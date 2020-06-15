@@ -1,5 +1,6 @@
 const input = document.querySelector("#csvFile");
 const comparisonArea = document.querySelector(".data-comparison");
+const saveArea = document.querySelector(".data-save");
 const imgClean = document.querySelector(".data-images-clean img");
 const imgCheck = document.querySelector(".data-images-check img");
 const dataClassName = document.querySelector(".data-classname");
@@ -52,6 +53,7 @@ const errorHandler = (evt)  => {
 const initalizeComparison = () => {
   imgClean.src = originalDataArray[0];
   comparisonArea.style.display = "block";
+  saveArea.style.display = "block";
 };
 
 const showANewImage = () => {
@@ -59,4 +61,19 @@ const showANewImage = () => {
   imgCheck.src = originalDataArray[currentLine];
 };
 
+const likeDislike = (event) => {
+  if (event.key === "p")  {
+    // If the image to be checked is cleaned, we keep it
+    resultDataArray.push(originalDataArray[currentLine]);
+    showANewImage();
+  }
+  if (event.key === "q")  {
+    // If not is cleaned, we don't
+    showANewImage();
+  }
+
+  console.log(resultDataArray);
+}
+
 input.addEventListener("change", processCSV);
+document.addEventListener("keyup", likeDislike);

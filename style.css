@@ -13,11 +13,12 @@ h2 {
 }
 
 .data-input {
-  margin: 24px 0;
+  margin: 48px 0;
 }
 
-.data-comparison {
+.data-comparison, .data-save {
   display: none;
+  margin-bottom: 48px;
 }
 
 .data-images {
