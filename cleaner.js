@@ -92,7 +92,7 @@ const likeDislike = (event) => {
     cancelLike();
   }
 
-  console.log(resultDataArray);
+  // console.log(resultDataArray);
 }
 
 const cancelLike = () => {
