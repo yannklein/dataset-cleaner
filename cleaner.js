@@ -41,7 +41,7 @@ const loadHandler = (event) => {
 const processData = (csv) => {
   originalDataArray =  csv.split(/\r\n|\n/);
   resultDataArray.push(originalDataArray[0])
-  // console.log(originalDataArray);
+  console.log(originalDataArray);
   initalizeComparison();
   showANewImage();
 };
@@ -65,7 +65,7 @@ const initalizeComparison = () => {
 const showANewImage = () => {
   currentLine += 1;
 
-  if (originalDataArray[currentLine]) {
+  if (!originalDataArray[currentLine]) {
     imgCheck.innerHTML = `<p>Great, no more images!</p>`
     return;
   }
