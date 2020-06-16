@@ -8,7 +8,7 @@ const save = document.querySelector("#saveCSV");
 
 let currentLine = 0;
 let originalDataArray = [];
-const resultDataArray = [];
+let resultDataArray = [];
 
 
 const processCSV = (event) => {
@@ -39,9 +39,14 @@ const loadHandler = (event) => {
 };
 
 const processData = (csv) => {
+  // Initialize all the variables
+  currentLine = 0;
   originalDataArray =  csv.split(/\r\n|\n/);
-  resultDataArray.push(originalDataArray[0])
-  console.log(originalDataArray);
+  resultDataArray = [];
+
+  // run the init process
+  resultDataArray.push(originalDataArray[0]);
+  // console.log(originalDataArray);
   initalizeComparison();
   showANewImage();
 };
